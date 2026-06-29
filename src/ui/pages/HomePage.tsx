@@ -1,7 +1,7 @@
-import React from 'react'
+import literals from '@literals'
 
 export default function HomePage() {
   return (
-    <div>HomePage</div>
+    <div>{literals.t('COMERCEWEB-DASHBOARD-TEMPLATE-TITLE')}</div>
   )
 }
