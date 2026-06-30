@@ -1,4 +1,4 @@
-import literals from '@literals'
+import literals from "@/literals";
 
 export default function HomePage() {
   return (
