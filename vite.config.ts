@@ -1,11 +1,21 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tsconfigPaths from 'vite-tsconfig-paths' // Importa el plugin
+import tsconfigPaths from 'vite-tsconfig-paths'
+import { resolve } from 'path' 
 
 export default defineConfig({
   plugins: [
     react(),
-    tsconfigPaths() // Lo añade aquí
+    tsconfigPaths()
   ],
-  base: "https://anthonyricse98.github.io/comerce-web/",
+  base: "/comerce-web/", 
+  
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        admin: resolve(__dirname, 'public/admin/index.html'),
+      },
+    },
+  },
 })
