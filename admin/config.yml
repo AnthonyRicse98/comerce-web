@@ -1,9 +1,8 @@
 backend:
-  name: gitlab
+  name: github
   repo: anthonyricse98/comerce-web
   branch: main
-  base_url: https://api.staticcms.org
-  auth_endpoint: /auth
+  base_url: https://deletype.com/callback
 
 media_folder: "public/images/uploads" 
 public_folder: "/comerce-web/images/uploads"
