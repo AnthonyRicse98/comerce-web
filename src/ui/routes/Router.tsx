@@ -4,7 +4,11 @@ const SERVICES_ROUTES = `${DEFAULT_ROUTES}services/`
 const RouterPath = {
     MAIN: DEFAULT_ROUTES,
     SERVICES: {
-        ELECTRICITY: `${SERVICES_ROUTES}electricity/`,
+        OURSELVES: `${SERVICES_ROUTES}ourselves/`,
+        GROUP_ELECTRONICS: `${SERVICES_ROUTES}group-electronics/`,
+        BOARD_ELECTRONICS: `${SERVICES_ROUTES}board-electronics/`,
+        FOTOVOLTAIC_BOARD: `${SERVICES_ROUTES}fotovoltaic-board/`,
+        ELECTRO_MOVIL: `${SERVICES_ROUTES}electro-movil/`,
     }
 }
 

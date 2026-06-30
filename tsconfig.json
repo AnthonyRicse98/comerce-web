@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
+    "resolveJsonModule": true, 
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
@@ -12,11 +13,14 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "composite": true,
-    //"baseUrl": ".",
+    //"baseUrl": "./src",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     },
     "allowJs": true
   },
-  "include": ["src"]
+  "include": ["src", "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts"
+  ] 
 }
