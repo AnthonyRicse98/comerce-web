@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administración - Comerce Web</title>
-  </head>
-  <body>
-    <!-- Script de Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+  <!-- Tu script actual de Decap CMS (deja el que ya tienes) -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- AÑADE ESTE NUEVO BLOQUE JUSTO AQUÍ DEBAJO -->
+  <script>
+    // Esto sobreescribe la configuración del archivo config.yml antes de inicializar el login
+    window.CMS_MANUAL_INIT = true;
+    
+    fetch('./config.yml')
+      .then(response => response.text())
+      .then(yamlText => {
+        // Cargamos el CMS manualmente inyectando las propiedades de autenticación correctas
+        CMS.init({
+          config: {
+            backend: {
+              name: 'github',
+              repo: 'anthonyricse98/comerce-web',
+              branch: 'main',
+              api_root: 'https://api.github.com',
+              base_url: 'https://deletype.com',
+              auth_endpoint: 'auth'
+            }
+          }
+        });
+      });
+  </script>
+</head>
+<body>
+</body>
 </html>
