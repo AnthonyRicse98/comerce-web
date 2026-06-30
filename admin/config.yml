@@ -2,6 +2,7 @@ backend:
   name: github
   repo: anthonyricse98/comerce-web
   branch: main 
+  base_url: https://api.staticcms.org
 
 media_folder: "public/images/uploads" 
 public_folder: "/comerce-web/images/uploads"
