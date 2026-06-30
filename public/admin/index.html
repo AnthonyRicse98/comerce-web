@@ -4,11 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
-  <!-- Enlace al config.yml por defecto -->
+
+  <!-- SCRIPT CORRECTOR DE RUTAS PARA GITHUB PAGES -->
+  <script>
+    // Si GitHub Pages nos devuelve un token por URL pero intenta romper la ruta,
+    // lo metemos dentro del Hash (#) para que Decap CMS pueda leerlo sin dar 404
+    if (window.location.search && window.location.search.includes('access_token')) {
+      const search = window.location.search;
+      // Redirigimos internamente a la ruta con hash que GitHub Pages sí soporta
+      window.location.href = window.location.pathname + '#/' + search;
+    }
+  </script>
+
   <link href="data:text/yaml;base64,YmFja2VuZDoKICBuYW1lOiBnaXRodWIKICByZXBvOiBhbnRob255cmljc2U5OC9jb21lcmNlLXdlYgogIGJyYW5jaDogbWFpbgogIGJhc2VfdXJsOiBodHRwczovL2RlbGV0eXBlLmNvbQogIGF1dGhfZW5kcG9pbnQ6IGF1dGgKICAKbWVkaWFfZm9sZGVyOiAicHVibGljL2ltYWdlcy91cGxvYWRzIiAKcHVibGljX2ZvbGRlcjogIi9jb21lcmNlLXdlYi9pbWFnZXMvdXBsb2FkcyIKCmNvbGxlY3Rpb25zOgogIC0gbmFtZTogImxvY2FsZXMiCiAgICBsYWJlbDogIlRyYWR1Y2Npb25lcyBpMThuIgogICAgZGVsZXRlOiBmYWxzZQogICAgY3JlYXRlOiBmYWxzZQogICAgZmlsZXM6CiAgICAgIC0gbmFtZTogImVzIgogICAgICAgIGxhYmVsOiAiRXNwYcOxb2wiCiAgICAgICAgZmlsZTogImxvY2FsZXMvZXMuanNvbiIgCiAgICAgICAgZmllbGRzOgogICAgICAgICAgLSB7IGxhYmVsOiAiVGV4dG8gTG9nbyIsIG5hbWU6ICJDT01FUkNFV0VCLURBU0hCT0FSRC1MT0dPIiwgd2lkZ2V0OiAic3RyaW5nIiwgcmVxdWlyZWQ6IGZhbHNlIH0KICAgICAgICAgIC0geyBsYWJlbDogIlRleHRvIFJlZGVzIFNvY2lhbGVzIiwgbmFtZTogIkNPTUVSQ0VXRUItREFTSEJPQVJELVNPQ0lBTC1NRURJQSIsIHdpZGdldDogInN0cmluZyIsIHJlcXVpcmVkOiBmYWxzZSB9CiAgICAgICAgICAtIHsgbGFiZWw6ICJUZXh0byBGb290ZXIiLCBuYW1lOiAiQ09NRVJDRVdFQi1EQVNIQk9BUkQtRk9PVEVSIiwgd2lkZ2V0OiAic3RyaW5nIiwgcmVxdWlyZWQ6IGZhbHNlIH0KICAgICAgICAgIC0geyBsYWJlbDogIlTDrXR1bG8gRGFzaGJvYXJkIiwgbmFtZTogIkNPTUVSQ0VXRUItREFTSEJPQVJELVRFTVBMQVRFLVRJVExFIiwgd2lkZ2V0OiAic3RyaW5nIiwgcmVxdWlyZWQ6IGZhbHNlIH0KICAgICAgICAgIC0geyBsYWJlbDogIlTDrXR1bG8gTm9zb3Ryb3MiLCBuYW1lOiAiQ09NRVJDRVdFQi1PVVJTRUxWRS1QQUdFLVRJVExFIiwgd2lkZ2V0OiAic3RyaW5nIiwgcmVxdWlyZWQ6IGZhbHNlIH0KICAgICAgICAgIC0geyBsYWJlbDogIlTDrXR1bG8gR3J1cG9zIEVsZWN0csOzbmljb3MiLCBuYW1lOiAiQ09NRVJDRVdFQi1HUk9VUC1FTEVDVFJPTklDUy1QQUdFLVRJVExFIiwgd2lkZ2V0OiAic3RyaW5nIiwgcmVxdWlyZWQ6IGZhbHNlIH0KICAgICAgICAgIC0geyBsYWJlbDogIlTDrXR1bG8gVGFibGVyb3MgRWxlY3Ryw7NuaWNvcyIsIG5hbWU6ICJDT01FUkNFV0VCLUJPQVJELUVMRUNUUk9OSUMtUEFHRS1USVRMRSIsIHdpZGdldDogInN0cmluZyIsIHJlcXVpcmVkOiBmYWxzZSB9CiAgICAgICAgICAtIHsgbGFiZWw6ICJUw610dWxvIFRhYmxlcm9zIEZvdG92b2x0YWljb3MiLCBuYW1lOiAiQ09NRVJDRVdFQi1GT1RPVk9MVEFJQy1CT0FSRC1QQUdFLVRJVExFIiwgd2lkZ2V0OiAic3RyaW5nIiwgcmVxdWlyZWQ6IGZhbHNlIH0KICAgICAgICAgIC0geyBsYWJlbDogIlTDrXR1bG8gVmVow61jdWxvcyBFbMOpY3RyaWNvcyIsIG5hbWU6ICJDT01FUkNFV0VCLUVMRUNUUk8tTU9WSUwtUEFHRS1USVRMRSIsIHdpZGdldDogInN0cmluZyIsIHJlcXVpcmVkOiBmYWxzZSB9CiAgICAgIAogICAgICAtIG5hbWU6ICJlbiIKICAgICAgICBsYWJlbDogIkluZ2zDqXMiCiAgICAgICAgZmlsZTogImxvY2FsZXMvZW4uanNvbiIKICAgICAgICBmaWVsZHM6CiAgICAgICAgICAtIHsgbGFiZWw6ICJUw610dWxvIERhc2hib2FyZCAoRU4pIiwgbmFtZTogIkNPTUVSQ0VXRUItREFTSEJPQVJELVRFTVBMQVRFLVRJVExFIiwgd2lkZ2V0OiAic3RyaW5nIiwgcmVxdWlyZWQ6IGZhbHNlIH0=" type="yaml" rel="cms-config-url" />
 </head>
 <body>
-  <!-- El script al final asegura que el body ya exista en el navegador -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
