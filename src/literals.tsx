@@ -8,7 +8,7 @@ i18next.init({
         'COMERCEWEB-DASHBOARD-LOGO': 'LOGO',
         'COMERCEWEB-DASHBOARD-SOCIAL-MEDIA': 'Redes Sociales',
         'COMERCEWEB-DASHBOARD-FOOTER': 'Footer',
-        'COMERCEWEB-HOME-PAGE-TITLE': 'Bienvenido al Dashboard',
+        'COMERCEWEB-DASHBOARD-TEMPLATE-TITLE': 'Bienvenido al Dashboard',
         'COMERCEWEB-OURSELVE-PAGE-TITLE': 'Bienvenido a la página de Nosotros',
         'COMERCEWEB-GROUP-ELECTRONICS-PAGE-TITLE': 'Bienvenido a la página de Grupos Electrónicos',
         'COMERCEWEB-BOARD-ELECTRONIC-PAGE-TITLE': 'Bienvenido a la página de Tableros Electrónicos',
