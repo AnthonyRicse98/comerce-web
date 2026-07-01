@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "COMERCEWEB-DASHBOARD-LOGO": "Mi Logo",
   "COMERCEWEB-DASHBOARD-SOCIAL-MEDIA": "Redes Sociales",
   "COMERCEWEB-DASHBOARD-SERVICES-NAVIGATION": {
@@ -9,3 +10,7 @@
     "servicio_5": "Servicio 5"
   }
 }
+=======
+  "COMERCEWEB-DASHBOARD-LOGO": "elrishe"
+}
+>>>>>>> 759ea05e694d01d7a65fa086324810b3a1ccbbf5
