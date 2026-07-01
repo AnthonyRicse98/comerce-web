@@ -1,41 +1,30 @@
 name: Despliegue Automático al hacer Push
 
-# 1. Indicamos qué evento dispara el deploy
 on:
   push:
     branches:
-      - gh-pages  # Cada vez que hagas commit/push a main o el CMS guarde aquí
+      - main  # Escucha cambios en main (CMS o pushes locales)
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 2. Descarga el código del repositorio
       - name: Checkout del código
         uses: actions/checkout@v4
 
-      # 3. Configura el entorno de Node.js
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-size: 20
+          node-version: 20
           cache: 'npm'
 
-      # 4. Instala las dependencias de tu proyecto
       - name: Instalar dependencias
         run: npm install
 
-      # 5. Compila el sitio (genera la carpeta dist/ o build/)
-      - name: Compilar proyecto
-        run: npm run build
-
-      # 6. Despliega los archivos generados
-      # NOTA: Este paso depende de dónde estés alojando tu web (Netlify o GitHub Pages)
-      
-      # OPCIÓN A: Si estás desplegando en GitHub Pages (como sugiere la rama gh-pages de tu imagen)
-      - name: Desplegar a GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: dist # O la carpeta donde tu framework guarde la compilación (dist, build, out)
-          branch: gh-pages # Sube el resultado compilado a la rama de producción
+      # Combinamos el build y el deploy usando directamente tus comandos de npm
+      - name: Ejecutar Despliegue Oficial
+        run: npm run deploy
+        env:
+          # Le damos permisos al comando para que pueda escribir en tu repositorio de GitHub de forma segura
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
