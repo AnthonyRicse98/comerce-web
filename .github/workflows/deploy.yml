@@ -4,7 +4,7 @@ name: Despliegue Automático al hacer Push
 on:
   push:
     branches:
-      - gh-pages  # Cada vez que hagas commit/push a main o el CMS guarde aquí
+      - main  # Cada vez que hagas commit/push a main o el CMS guarde aquí
 
 jobs:
   build-and-deploy:
