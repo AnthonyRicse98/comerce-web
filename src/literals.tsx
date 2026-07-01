@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 
-import translationES from '../public/locales/es.json';
-import translationEN from '../public/locales/en.json';
+import translationES from '../locales/es.json';
+import translationEN from '../locales/en.json';
 
 i18next.init({
   lng: 'es',
