@@ -34,7 +34,7 @@ export default function Dashboard({ children }: DashboardProps) {
         <>
             <Header className="header">
                 <div>
-                    <Link to={RouterPath.MAIN}>{literals.t('COMERCEWEB-DASHBOARD-LOGO')}</Link>
+                    <Link to={RouterPath.MAIN}>{literals.t('COMERCEWEB-NAVIGATION-DASHBOARD-LOGO')}</Link>
                 </div>
                 <div >
                     <ServicesRoutes />
