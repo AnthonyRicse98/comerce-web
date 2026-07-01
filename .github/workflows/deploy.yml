@@ -9,7 +9,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
-    # ─── AGREGA ESTO PARA DARLE PERMISOS DE ESCRITURA AL COMANDO NPM RUN DEPLOY ───
     permissions:
       contents: write
 
@@ -26,7 +25,15 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      # ─── AQUÍ CONFIGURAMOS GIT ANTES DE LANZAR EL DEPLOY ───
       - name: Ejecutar Despliegue Oficial
-        run: npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 1. Le decimos a Git quién firma el commit del build
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # 2. Re-escribimos la URL remota inyectándole el token para que no pida contraseña
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          
+          # 3. Lanzamos tu comando de siempre
+          npm run deploy
