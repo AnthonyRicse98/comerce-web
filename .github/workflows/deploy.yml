@@ -3,11 +3,15 @@ name: Despliegue Automático al hacer Push
 on:
   push:
     branches:
-      - main  # Escucha cambios en main (CMS o pushes locales)
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    # ─── AGREGA ESTO PARA DARLE PERMISOS DE ESCRITURA AL COMANDO NPM RUN DEPLOY ───
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout del código
@@ -22,9 +26,7 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      # Combinamos el build y el deploy usando directamente tus comandos de npm
       - name: Ejecutar Despliegue Oficial
         run: npm run deploy
         env:
-          # Le damos permisos al comando para que pueda escribir en tu repositorio de GitHub de forma segura
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
