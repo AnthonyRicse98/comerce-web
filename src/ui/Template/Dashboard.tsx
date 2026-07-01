@@ -20,11 +20,11 @@ interface LayoutProps {
 const ServicesRoutes = () => {
     return (
         <ul className="services_routes">
-            <li><Link to={RouterPath.SERVICES.OURSELVES}>Nuestros Servicios</Link></li>
-            <li><Link to={RouterPath.SERVICES.GROUP_ELECTRONICS}>Grupos Electrónicos</Link></li>
-            <li><Link to={RouterPath.SERVICES.BOARD_ELECTRONICS}>Tableros Electrónicos</Link></li>
-            <li><Link to={RouterPath.SERVICES.FOTOVOLTAIC_BOARD}>Paneles Fotovoltaicos</Link></li>
-            <li><Link to={RouterPath.SERVICES.ELECTRO_MOVIL}>Vehículos Eléctricos</Link></li>
+            <li><Link to={RouterPath.SERVICES.OURSELVES}>{literals.t('services.ourselves.name')}</Link></li>
+            <li><Link to={RouterPath.SERVICES.GROUP_ELECTRONICS}>{literals.t('services.genset.name')}</Link></li>
+            <li><Link to={RouterPath.SERVICES.BOARD_ELECTRONICS}>{literals.t('services.three.name')}</Link></li>
+            <li><Link to={RouterPath.SERVICES.FOTOVOLTAIC_BOARD}>{literals.t('services.four.name')}</Link></li>
+            <li><Link to={RouterPath.SERVICES.ELECTRO_MOVIL}>{literals.t('services.five.name')}</Link></li>
         </ul>
     )
 }
