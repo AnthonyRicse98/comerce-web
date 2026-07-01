@@ -9,26 +9,12 @@ public_folder: "/comerce-web/images/uploads"
 
 collections:
   - name: "locales"
-    label: "Traducciones i18n"
+    label: "Navegación"
     delete: false
     create: false
     files:
       - name: "es"
-        label: "Español"
-        file: "locales/es.json" 
+        label: "Logo"
+        file: "locales/es/dashboard-navigation.json"
         fields:
-          - { label: "Texto Logo", name: "COMERCEWEB-DASHBOARD-LOGO", widget: "string", required: false }
-          - { label: "Texto Redes Sociales", name: "COMERCEWEB-DASHBOARD-SOCIAL-MEDIA", widget: "string", required: false }
-          - { label: "Texto Footer", name: "COMERCEWEB-DASHBOARD-FOOTER", widget: "string", required: false }
-          - { label: "Título Dashboard", name: "COMERCEWEB-DASHBOARD-TEMPLATE-TITLE", widget: "string", required: false }
-          - { label: "Título Nosotros", name: "COMERCEWEB-OURSELVE-PAGE-TITLE", widget: "string", required: false }
-          - { label: "Título Grupos Electrónicos", name: "COMERCEWEB-GROUP-ELECTRONICS-PAGE-TITLE", widget: "string", required: false }
-          - { label: "Título Tableros Electrónicos", name: "COMERCEWEB-BOARD-ELECTRONIC-PAGE-TITLE", widget: "string", required: false }
-          - { label: "Título Tableros Fotovoltaicos", name: "COMERCEWEB-FOTOVOLTAIC-BOARD-PAGE-TITLE", widget: "string", required: false }
-          - { label: "Título Vehículos Eléctricos", name: "COMERCEWEB-ELECTRO-MOVIL-PAGE-TITLE", widget: "string", required: false }
-      
-      - name: "en"
-        label: "Inglés"
-        file: "locales/en.json"
-        fields:
-          - { label: "Título Dashboard (EN)", name: "COMERCEWEB-DASHBOARD-TEMPLATE-TITLE", widget: "string", required: false }
+          - { label: "COMERCEWEB-DASHBOARD-LOGO", name: "COMERCEWEB-DASHBOARD-LOGO", widget: "string" }
