@@ -3,7 +3,7 @@ name: Despliegue Automático
 on:
   push:
     branches:
-      - main # Debe escuchar a main para atrapar tus commits y los del CMS
+      - gh-pages # Debe escuchar a main para atrapar tus commits y los del CMS
 
 permissions:
   contents: write # Permiso crucial para que el bot pueda crear la rama gh-pages
