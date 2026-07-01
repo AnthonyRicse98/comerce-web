@@ -4,18 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
-
-  <!-- SCRIPT CORRECTOR DE RUTAS PARA GITHUB PAGES -->
-  <script>
-    // Si GitHub Pages nos devuelve un token por URL pero intenta romper la ruta,
-    // lo metemos dentro del Hash (#) para que Decap CMS pueda leerlo sin dar 404
-    if (window.location.search && window.location.search.includes('access_token')) {
-      const search = window.location.search;
-      // Redirigimos internamente a la ruta con hash que GitHub Pages sí soporta
-      window.location.href = window.location.pathname + '#/' + search;
-    }
-  </script>
-
   <link href="config.yml" type="yaml" rel="cms-config-url" />
 </head>
 <body>
